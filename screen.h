@@ -23,7 +23,7 @@ typedef struct{
 // now we can use color names in function setfgcolor()
 
 
-// function declarationso
+// function declarationsoo
 void setfgcolor(int);
 void setbgcolor(int);
 void setcolors(int, int);
@@ -32,3 +32,4 @@ void clearscreen(void);
 void gotoXY(int, int);
 void drawbar(int, int);
 Position getscreensize(void);	// this function returns a compound data (2 integers)
+int devicestatus(void);
