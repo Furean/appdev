@@ -34,11 +34,17 @@ Table of Contents
 	In our case, so far, the list may look like this:
 
 	README.md : 		this file
+
 	screen.c : 			contains screen manipulation functions
+
 	screen.h : 			contains screen function declarations and related constants
+
 	comm.c : 			contains functions for client-server communications
+
 	comm.h : 			contains comm function declarations and related constants
+
 	testcurl.c : 		contains functions for transferring data.
+
 	testscreen.c : 		contains the application utilizing the above functions.
 
 5. Copyright and licensing information
