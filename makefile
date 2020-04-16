@@ -1,7 +1,7 @@
-OBJ = screen.o testscreen.o comm.o
+OBJ = screen.o testscreen.o comm.o sound.o
 APPNAME = screentest
 
-#linking rule
+#linking ruleo
 $(APPNAME) : $(OBJ)
 	gcc -o $(APPNAME) $(OBJ) -lcurl
 

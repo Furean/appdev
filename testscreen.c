@@ -1,20 +1,21 @@
-// we test functions of screen.coooooooo
+// we test functions of screen.cooo
 #include <stdio.h>
 #include <unistd.h>
 #include "screen.h"
 #include "comm.h"
+#include "sound.h"
 
 int main(void){
-	Position cur = getscreensize();
+/*	Position cur = getscreensize();
 	char poststr[100];
 	sprintf(poststr, "row=%d&col=%d", cur.row, cur.col);
-//	senddata(poststr, URL);
-//	gotoXY(1,1); 
-//	printf("Screen size, ROW=%d, COL=%d\n", cur.row, cur.col);
-//	printf("HTTP post is sent to %s\n");
-//	getchar();	// waiting for the user to press a key
-//	getchar();
-//	for(int i=0; i<cur.row; i++){
+	senddata(poststr, URL);
+	gotoXY(1,1); 
+	printf("Screen size, ROW=%d, COL=%d\n", cur.row, cur.col);
+	printf("HTTP post is sent to %s\n");
+	getchar();	// waiting for the user to press a key
+	getchar();
+	for(int i=0; i<cur.row; i++){
 	for(int i=0; i<25; i++) {
 		setcolors(RED, BLUE);
 		clearscreen();
@@ -36,15 +37,16 @@ int main(void){
 		printf("HELLO\n");
 		usleep(500000);
 	}
-/*	for(int i=0; i<10; i++){
+	for(int i=0; i<10; i++){
 		setcolors(RED, BLUE);
 		clearscreen();
 		gotoXY(1+i, 20+i);
 		printf("HELLO\n");
 		usleep(500000);
 	}
-*/
-//	printf("The following message will be in YELLOW color\n");
+
+	printf("The following message will be in YELLOW color\n");
+
 	gotoXY(14, 35);
 	setfgcolor(BLUE);
 	printf("e1901099\n");
@@ -56,4 +58,13 @@ int main(void){
 	resetcolors();
 	clearscreen();
 	printf("This line is back to default color\n");
+*/
+	FILE *fp;
+	fp = fopen("test.wav", "r");
+	WAVheader h = readwavhdr(fp);
+	fclose(fp);
+	displayWAVhdr(h);
+//}
 }
+
+//ooo
