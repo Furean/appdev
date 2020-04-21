@@ -45,8 +45,8 @@ void gotoXY(int row, int col){
 void drawbar(int col, int height){
 	int i;
 	for(i=1; i<=height; i++){
-		gotoXY(i, col);
-#ifdef UNICODE		//following codes are in conditional compilation
+		gotoXY(35-i, col);
+#ifdef UNICODE		//following codes are in conditional compilationo
 		printf("%s", BAR);
 #else
 		printf("%c", '#');
