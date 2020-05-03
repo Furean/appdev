@@ -1,9 +1,9 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <math.h>
 #include "sound.h"
 #include "screen.h"
-
-//ooo
+#include "comm.h"
 
 WAVheader readwavhdr(FILE *fp){
 	WAVheader myh;
@@ -20,7 +20,7 @@ void displayWAVhdr(WAVheader h){
 	printf("Sample Rate: %d\n", h.sampleRate);
 	printf("Block Align: %d\n", h.blockAlign);
 	printf("Bits per sample: %d\n", h.bitsPerSample);
-	// ... to be continuedoooooooo
+	// ... to be continued
 }
 
 void wavdata(WAVheader h, FILE *fp){
@@ -31,8 +31,8 @@ void wavdata(WAVheader h, FILE *fp){
 	// 5*16000 = 80000 samples, we want to display them into 160 bars
 	// on our screen.
 	short samples[500];		// to read 500 samples from wav file
-	int peaks = 0, flag = 0;	// 1st value is to count, the 2nd is to show th you are in a peak
-	
+	int peaks = 0, flag = 0, high = 0;	// 1st value is to count, the 2nd is to show th you are in a peak
+
 	for(int i=0; i<160; i++){
 		fread(samples, sizeof(samples), 1, fp);
 		double sum = 0.0;	//  accumulate the sum
@@ -40,6 +40,13 @@ void wavdata(WAVheader h, FILE *fp){
 			sum = sum + samples[j]*samples[j];
 		}
 		double re = sqrt(sum/500);
+		if(re > high) {
+			high = re;
+		}
+		else
+		{
+		high = 0;
+		}
 #ifdef SDEBUG
 		printf("db[%d] = %f\n", i+1, 20*log10(re));
 #else
@@ -60,8 +67,11 @@ void wavdata(WAVheader h, FILE *fp){
 	}
 	// display sample rate, duration, number of peaks
 	gotoXY(1,1); printf("Sample Rate: %d\n", h.sampleRate);
-	gotoXY(1,75); printf("Duration: %f s\n", (float)h.subchunk2Size/h.byteRate);
-	gotoXY(1,150); printf("Peaks: %d\n", peaks);
+	gotoXY(1,25); printf("Duration: %f s\n", (float)h.subchunk2Size/h.byteRate);
+	char poststr[100];
+	gotoXY(1,75); printf("Peaks: %d\n", peaks);
+	gotoXY(2, 1); sprintf(poststr, "data=%d&high=%d", peaks, high);
+	senddata(poststr, URL);
 }
 
-//end of fileoooooooooo
+//end of file

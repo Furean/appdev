@@ -18,34 +18,59 @@ Table of Contents
 7. Credits and acknowledgements
 
 1. Configuration instructions
-	In this section you need to tell the user how to configure the system(s)
-	to run this application.
+	In order to run this application, you will need to acquire a SSH client
+	in order to access the school's network. Clients such as Putty and WinSCP
+	can be used for this purpose.
+
+	The network information is as follows:
+	Host: shell.vamk.fi
+	Port: 22
+
+	You should use your own account when it prompts for login details.
 
 2. Installation instructions
-	In this section you need to tell the user how to install this application
-	from source code (usually is github repository) to an executable.
+	In order to install this application, you should first create a directory
+	for the source code files. Github is then to be used to download the files.
+
+	For example, the wget command could be utilized for this purpose.
+
+	wget https://github.com/Furean/appdev
 
 3. Operating instructions
-	In this section you need to tell the user how to run the application. E.g.,
-	any command line arguments needed, any 3rd party library needed, etc.
+	Once you have downloaded the files, you will need to compile the
+	application. For this purpose, we have a make file.
+
+	Simply use the command "make file", in order to compile the application.
+	Once this is done, you will have a executable called "sound".
+	
+	Type ./sound to run the program.
+
+	If you wish to analyse a different sound file, simply download a new wav
+	file to directory, and rename it to test.wav in order to replace the old
+	file. After that, you can simply run the program to see the different
+	results.
 
 4. File manifest
-	In this section you need to offer a list of files included in this application.
-	In our case, so far, the list may look like this:
-
 	README.md : 		this file
 
 	screen.c : 			contains screen manipulation functions
 
-	screen.h : 			contains screen function declarations and related constants
+	screen.h : 			contains screen function declarations and related 
+	constants
 
 	comm.c : 			contains functions for client-server communications
 
-	comm.h : 			contains comm function declarations and related constants
+	comm.h : 			contains comm function declarations and related 
+	constants
 
 	testcurl.c : 		contains functions for transferring data.
 
-	testscreen.c : 		contains the application utilizing the above functions.
+	sound.c : 			contains the application utilizing the above functions.
+
+	sound.h :			contains the sound function delcarations.
+
+	sound.php :			contains the necessary php code for uploading
+	the application data.
 
 5. Copyright and licensing information
 	This application follows GPLv2 license.
