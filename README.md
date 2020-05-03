@@ -5,8 +5,7 @@
 
 General Description of the Application
 
-	This application will blah blah....
-	Always indent for paragraphs.
+	This application allows one to test audio files, by displaying their peaks as well as max dB value.
 
 Table of Contents
 1. Configuration instructions
@@ -18,6 +17,7 @@ Table of Contents
 7. Credits and acknowledgements
 
 1. Configuration instructions
+
 	In order to run this application, you will need to acquire a SSH client
 	in order to access the school's network. Clients such as Putty and WinSCP
 	can be used for this purpose.
@@ -29,6 +29,7 @@ Table of Contents
 	You should use your own account when it prompts for login details.
 
 2. Installation instructions
+
 	In order to install this application, you should first create a directory
 	for the source code files. Github is then to be used to download the files.
 
@@ -37,6 +38,7 @@ Table of Contents
 	wget https://github.com/Furean/appdev
 
 3. Operating instructions
+
 	Once you have downloaded the files, you will need to compile the
 	application. For this purpose, we have a make file.
 
@@ -51,6 +53,7 @@ Table of Contents
 	results.
 
 4. File manifest
+
 	README.md : 		this file
 
 	screen.c : 			contains screen manipulation functions
@@ -73,12 +76,15 @@ Table of Contents
 	the application data.
 
 5. Copyright and licensing information
+
 	This application follows GPLv2 license.
 
 6. Contact information
+
 	email: e1901099@edu.vamk.fi
 
 7. Credits and acknowledgements
+
 	Application by Patrik Vuorinen
 	
 	Acknowledgements: Chao Gao.

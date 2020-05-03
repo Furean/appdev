@@ -1,7 +1,7 @@
 OBJ = screen.o main.o comm.o sound.o
 APPNAME = sound
 
-#linking ruleo
+#linking rule
 $(APPNAME) : $(OBJ)
 	gcc -o $(APPNAME) $(OBJ) -lcurl -lm
 
@@ -13,6 +13,6 @@ $(APPNAME) : $(OBJ)
 clean :
 	rm $(APPNAME) $(OBJ)
 
-#archiving ruleo
+#archiving rule
 zip : 
 	tar cf appdev.tar *.c *.h makefile

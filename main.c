@@ -1,4 +1,4 @@
-// we test functions of screen.coo
+// we test functions of screen.c as well as sound.c
 #include <stdio.h>
 #include <unistd.h>
 #include "screen.h"
@@ -16,5 +16,4 @@ int main(void){
 	getchar();
 }
 
-//ooooo
 

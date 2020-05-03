@@ -31,7 +31,7 @@ void wavdata(WAVheader h, FILE *fp){
 	// 5*16000 = 80000 samples, we want to display them into 160 bars
 	// on our screen.
 	short samples[500];		// to read 500 samples from wav file
-	int peaks = 0, flag = 0, high = 0;	// 1st value is to count, the 2nd is to show th you are in a peak
+	int peaks = 0, flag = 0, high = 0;	// 1st value is to count, the 2nd is to show th you are in a peak, 3rd to save max db value
 
 	for(int i=0; i<160; i++){
 		fread(samples, sizeof(samples), 1, fp);
@@ -40,13 +40,15 @@ void wavdata(WAVheader h, FILE *fp){
 			sum = sum + samples[j]*samples[j];
 		}
 		double re = sqrt(sum/500);
-		if(re > high) {
-			high = re;
+		double calc = 20*log10(re);
+		if(calc > high) {
+			high = calc;
 		}
 		else
 		{
-		high = 0;
+		high = high;
 		}
+
 #ifdef SDEBUG
 		printf("db[%d] = %f\n", i+1, 20*log10(re));
 #else

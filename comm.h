@@ -1,4 +1,4 @@
-// constant definitionsooooo
+// constant definitions
 #define URL "http://www.cc.puv.fi/~e1901099/php/sound.php"
 
 // function declarations

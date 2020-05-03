@@ -1,12 +1,12 @@
 // In this file we are going to define a number of functions for screen
 // manipulation. These functions include erase screen, set color attributes,
-// set cursor location, etc.. using VT100 escape sequences.ooooooooooooooo
+// set cursor location, etc.. using VT100 escape sequences.
 
 // Follow this reference: http://www.termsys.demon.co.uk/vtansi.htm
 #include <stdio.h>
 #include "screen.h"
 
-//oo function definition
+// function definition
 int devicestatus(void){
 	printf("%c[5n", ESC);
 	char status[40];
@@ -46,7 +46,7 @@ void drawbar(int col, int height){
 	int i;
 	for(i=1; i<=height; i++){
 		gotoXY(35-i, col);
-#ifdef UNICODE		//following codes are in conditional compilationo
+#ifdef UNICODE		//following codes are in conditional compilation
 		printf("%s", BAR);
 #else
 		printf("%c", '#');
@@ -79,4 +79,4 @@ Position getscreensize(void){
 	return p;
 }
 
-//ooo
+

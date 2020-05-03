@@ -30,5 +30,3 @@ void senddata(char *postdata, char *url){
 
 }
 
-
-//oooooooo

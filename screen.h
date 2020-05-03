@@ -23,7 +23,7 @@ typedef struct{
 // now we can use color names in function setfgcolor()
 
 
-// function declarationsoo
+// function declarations
 void setfgcolor(int);
 void setbgcolor(int);
 void setcolors(int, int);
